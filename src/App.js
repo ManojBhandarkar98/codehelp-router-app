@@ -5,6 +5,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 import Home from './components/Home';
+import MainHeader from './components/MainHeader';
 
 
 function App() {
@@ -20,12 +21,16 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        //Multiple Route
-        <Route path='/' element={<Home />}>Single Route</Route>
-        <Route path='/support' element={<Support />}>Support</Route>
-        <Route path='/about' element={<About />}>About</Route>
-        <Route path='/contact' element={<Contact />}>Contact Us</Route>
-        <Route path='*' element={<NotFound />} />
+
+        <Route path='/' element={<MainHeader />}>
+          <Route index element={<Home />}/>
+          <Route path='/support' element={<Support />}>Support</Route>
+          <Route path='/about' element={<About />}>About</Route>
+          <Route path='/contact' element={<Contact />}>Contact Us</Route>
+          <Route path='*' element={<NotFound />} />
+
+        </Route>
+
       </Routes>
     </div>
   );
